@@ -12,14 +12,14 @@ We transmit data by instantiating a `SocksConnection` and invoking `transmit(Str
 ````java
 new SocksConnection(port).transmit(host, new SocksTransmission() {
     @Override
-    public ByteBuffer requestTransmission() {
+    public ByteBuffer onTransmission() {
         return myByteBuffer;
     }
 });
 ````
 
 We choose a port and a host, then we define a `SocksTransmission`, 
-the return of the implementation of `requestTransmission` will be
+the return of the implementation of `onTransmission` will be
 the data transmitted to the receiving end.
 
 ### Receiving Data
@@ -52,9 +52,9 @@ Then we put data up to our byte limit.
 In the example we use `put(int)` to put an integer.
 
 ````java
-int a = value.get();
-float b = value.getFloat();
-float c = value.getFloat();
+int a = buffer.get();
+float b = buffer.getFloat();
+float c = buffer.getFloat();
 ````
 
 When receiving a `ByteBuffer` we use the get methods to pull data.

@@ -37,7 +37,7 @@ public class SocksClient {
                 try {
                     dataSocket = new DatagramSocket();
                     while (active) {
-                        ByteBuffer buffer = callback.requestTransmission();
+                        ByteBuffer buffer = callback.onTransmission();
                         byte[] array = buffer.array();
                         DatagramPacket dataPacket = new DatagramPacket(array, array.length, Inet4Address.getByName(host), port);
                         dataSocket.setBroadcast(true);

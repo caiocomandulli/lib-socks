@@ -14,6 +14,6 @@ public interface SocksTransmission {
      *
      * @return ByteBuffer to be sent.
      */
-    ByteBuffer requestTransmission();
+    ByteBuffer onTransmission();
 
 }
